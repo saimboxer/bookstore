@@ -5,7 +5,7 @@ class AddBookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ("title", "author", "year", "publisher")
-        years = [(year, year) for year in [2018, 2019, 2020]]
+        years = [(year, year) for year in range(1700, 2100)]
         widgets = {
             'title':forms.TextInput(attrs={'class':'form-control', 'required': True}),
             'author':forms.TextInput(attrs={'class':'form-control', 'required': True}),

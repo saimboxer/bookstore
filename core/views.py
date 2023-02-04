@@ -93,7 +93,7 @@ class AttributeValueList(View):
 class Add_AttributeValue(View):
     def get(self, request):
         fm = AddAttributeValueForm()
-        return render(request, 'core/attributevalue.html', {'form' : fm})  
+        return render(request, 'core/add-attributevalue.html', {'form' : fm})  
 
     def post(self, request):
         fm = AddAttributeValueForm(request.POST)
@@ -101,7 +101,7 @@ class Add_AttributeValue(View):
             fm.save()
             return redirect('/')
         else:
-            return render(request, 'core/attributevalue.html', {'form' : fm})    
+            return render(request, 'core/add-attributevalue.html', {'form' : fm})    
 
 class Edit_Attributevalue(View):
     def get(self, request, id):

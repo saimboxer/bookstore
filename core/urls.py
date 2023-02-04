@@ -12,7 +12,7 @@ urlpatterns = [
     path('delete-attribute/', Delete_Attribute.as_view(), name='delete-attribute'),
     path('attribute-value/', AttributeValueList.as_view(), name='attribute-value'),
     path('addattribute-value/', Add_AttributeValue.as_view(), name='addattribute-value'),
-    path('edit-attribute-value/', Edit_Attributevalue.as_view(), name='edit-attribute-value'),
+    path('edit-attribute-value/<int:id>/', Edit_Attributevalue.as_view(), name='edit-attribute-value'),
     path('delete-attributevalue/', Delete_Attributevalue.as_view(), name='delete-attributevalue'),
 
 ]
