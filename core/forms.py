@@ -28,3 +28,13 @@ class AddAttributeValueForm(forms.ModelForm):
         widgets = {
             'attribute_value':forms.TextInput(attrs={'class':'form-control'}),
         }         
+
+class BookAttributeValueForm(forms.ModelForm):
+    class Meta:
+        model = BookAttributeValue
+        fields = ("book", "attribute", "attribute_value",)
+        widgets = {
+            'book':forms.TextInput(attrs={'class':'form-control'}),
+            'attribute':forms.TextInput(attrs={'class':'form-control'}),
+            'attribute_value':forms.TextInput(attrs={'class':'form-control'})
+        }          

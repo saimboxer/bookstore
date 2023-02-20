@@ -5,7 +5,7 @@ class Book(models.Model):
     title  = models.CharField(max_length=100)
     author = models.CharField(max_length=150)
     year  = models.IntegerField()
-    publisher = models.CharField(max_length=150)
+    publisher = models.CharField(max_length=150, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -28,7 +28,7 @@ class AttributeValue(models.Model):
         return self.attribute_value          
 
 class BookAttributeValue(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="book_attrs")
     attribute = models.ForeignKey(Attribute, on_delete=models.CASCADE)
     attribute_value = models.ForeignKey(AttributeValue, on_delete=models.CASCADE)
 
@@ -37,3 +37,10 @@ class BookAttributeValue(models.Model):
 
     class Meta:
         unique_together = (('book', 'attribute'),) 
+
+class Bird(models.Model):
+    common_name = models.CharField(max_length=250)
+    scientific_name = models.CharField(max_length=250)
+    
+    def __str__(self):
+      return self.common_name        

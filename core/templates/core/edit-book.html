@@ -1,6 +1,14 @@
 {% extends 'core/base.html' %}
 {% block title %}Edit Book{% endblock title %}
+
 {% block main_content %}
+<script>
+    function add_section(){
+        console.log(```aaa```)
+//          attrs wali div mn append this
+
+    }
+</script>
 <section class="container">
     <div class="row justify-content-around text-center text-white mt-5">
         <div class="col-sm-8">
@@ -10,11 +18,38 @@
     <div class="row justify-content-around mt-3">
         <div class="col-sm-4">
             <!-- <form action="" method="POST" class="bg-white p-3 rounded shadow"> -->
-            <form action="" method="POST" class="bg-white p-3 rounded shadow">
+            {{all_attributes}}
+            
+                <form action="" method="POST" class="bg-white p-3 rounded shadow">
                 {% csrf_token %}
                 {{form.as_p}}
-                <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                <div id="attrs" >
+                    <div class="">
+                        <p>
+                            <label for="id_title">Attribute Name:</label>
+                            <div class="form-group">
+                                <label for=""></label>
+                                <select class="custom-select" name="" id="">
+                                    {% for i in all_attributes %}
+                                        <option value="{{i}}" >{{i}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <input type="text" name="aan_1" value="Harry Potter1" class="form-control" required="" maxlength="100" id="id_title">
+                        </p>
+                        <p>
+                            <label for="id_title">Attribute Value:</label>
+                            <input type="text" name="aav_1" value="Harry Potter1" class="form-control" required="" maxlength="100" id="id_title">
+                        </p>
+                    </div>
+                </div>
+                <input type="submit" value="Submit"  class="btn btn-primary btn-sm">
+                <input type="button" value="add" onclick="add_section()" class="btn btn-primary btn-sm">
             </form>
+            <!-- <form action="" method="POST" class="bg-white p-3 rounded shadow">
+                {% csrf_token %}
+                <input type="Add field" value="Submit" class="btn btn-primary btn-sm">
+            </form> -->
         </div>
     </div>
 </section>    
